@@ -1,0 +1,234 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+body {
+    background: #1f242d;
+    min-height: 100vh;
+}
+
+hr {
+    margin: 0 30%;
+}
+
+.container {
+    margin: 20px 0;
+    padding: 10px;
+    display: flex;
+    margin-bottom: 110px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.panel{
+    animation: fade 5s;
+    /* margin-top: 15%; */
+}
+
+@keyframes fade
+{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+.panel-head {
+    color: #fff;
+    text-decoration: cyan underline;
+    margin-top: 5%;
+    margin-bottom: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: center;
+}
+
+@media screen and (max-width: 800px) {
+    .panel {
+        margin-top: 15%;
+    }
+}
+
+.panel-para {
+    color: #fff;
+    text-align: justify;
+    margin: 20px 40px;
+}
+
+.card {
+    margin: 10px 20px;
+    width: 400px;
+    height: 100%;
+    position: relative;
+    border-radius: 10px;
+    transition: .5s ease;
+    box-shadow: 10px 10px 10px black;
+    animation: slideBottom .9s ease-in-out backwards;
+    animation-delay: calc(.9s *var(--c));
+}
+
+.card img {
+    width: 100%;
+    height: 40vh;
+    display: block;
+    border-radius: 10px;
+}
+
+.card .content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    backdrop-filter: blur(4px);
+    background: linear-gradient(to bottom left, rgb(0 0 0/.5), rgb(0 0 0/0));
+}
+
+.card:hover {
+    transform: scale(1.03);
+    transition: .5s ease-in-out;
+    box-shadow: 20px 20px 20px black;
+    border-radius: 10px;
+}
+
+.card:hover .content {
+    opacity: 1;
+}
+
+.content:hover {
+    border-radius: 10px;
+}
+
+.content .link {
+    margin: 20px;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 4px solid white;
+    opacity: 1;
+}
+
+.content:hover .link {
+    animation: slideTop .5s ease forwards;
+}
+
+.content .head {
+    text-align: center;
+    /* margin: 40px 0; */
+    margin-top: 40px;
+    color: #fff;
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-decoration: underline;
+    opacity: 1;
+    transition: .5s;
+}
+
+.content:hover .head {
+    animation: slideBottom .9s ease-in-out backwards;
+}
+
+.content .para {
+    margin: 20px;
+    text-align: justify;
+    color: #fff;
+    font-size: 13.5px;
+    /* opacity: 0; */
+    overflow: hidden;
+}
+
+.content:hover .para
+{
+    animation: slideRight 1s ease forwards;
+} 
+.content::after .para
+{
+    visibility: hidden;
+}
+
+/* Animation */
+@keyframes slideBottom {
+    0% {
+        transform: translateY(0px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(-100px);
+        opacity: 1;
+    }
+}
+
+@keyframes slideTop {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideLeft {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideRight {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Footer CSS */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    /* margin-top: 600px; */
+    width: 100%;
+    height: 3%;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(to right, #00B4DB, #0083B0);
+}
+
+.footer #myName {
+    color: ghostwhite;
+    font-size: 18px;
+    margin-top: -15px;
+    animation: slideTop 2s ease-in forwards;
+}
+
+.footer #myName #name {
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 20px;
+}
